@@ -1,1 +1,1 @@
-請將 DataSource 的 JNDI 位置 設於 java:jboss/datasources/PostgresDS
+請將 DataSource 的 JNDI 位置 設於 java:jboss/datasources/TestDS

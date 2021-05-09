@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 
 @RestController
@@ -18,7 +19,8 @@ public class DBController {
 	MessageRecordRepository repository;
 
 	@PostMapping(value = "/save",
-			consumes = TEXT_PLAIN_VALUE
+			consumes = TEXT_PLAIN_VALUE,
+			produces = APPLICATION_JSON_VALUE
 	)
 	public ResponseEntity<MessageRecord> save(@RequestBody String msg) {
 		MessageRecord save = repository.save(new MessageRecord(msg));
@@ -27,7 +29,7 @@ public class DBController {
 	}
 
 	@PostMapping(value = "/find/{id}",
-			consumes = TEXT_PLAIN_VALUE
+			produces = APPLICATION_JSON_VALUE
 	)
 	public ResponseEntity<MessageRecord> find(@PathVariable String id) {
 		Optional<MessageRecord> record = repository.findById(id);
