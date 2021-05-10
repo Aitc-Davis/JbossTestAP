@@ -4,7 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>db</module>
-        <module>jms</module>
+        <module>jms-queue</module>
+        <module>jms-topic</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -39,6 +40,7 @@
     </dependencies>
 
     <build>
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
